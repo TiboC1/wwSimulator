@@ -30,6 +30,6 @@ Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middle
 
 // Import and Export Routes
 
-Route::get('import-export', 'EventController@importExport');
-Route::post('import', 'EventController@import');
-Route::get('export', 'EventController@export');
+Route::get('import-export', 'ImportController@importExport');
+Route::post('import', 'ImportController@import');
+Route::get('export', 'ImportController@export');

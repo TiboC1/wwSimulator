@@ -7,7 +7,7 @@ use App\Exports\ExportEvents;
 use App\Imports\ImportEvents;
 use Maatwebsite\Excel\Facades\Excel;
    
-class TestController extends Controller
+class ImportController extends Controller
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -22,7 +22,7 @@ class TestController extends Controller
     */
     public function export() 
     {
-        return Excel::download(new ExportUsers, 'users.xlsx');
+        return Excel::download(new ExportEvents, 'events.xlsx');
     }
     
     /**
@@ -30,7 +30,7 @@ class TestController extends Controller
     */
     public function import() 
     {
-        Excel::import(new ImportUsers, request()->file('file'));
+        Excel::import(new ImportEvents, request()->file('file'));
             
         return back();
     }
