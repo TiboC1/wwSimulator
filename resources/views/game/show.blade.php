@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{$user->profile}}
+                    {{$event->randomDeathGen()}}
                 </div>
             </div>
         </div>

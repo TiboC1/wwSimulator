@@ -17,16 +17,16 @@ class Character extends Model
 
     public function showPhysicalHealth(){
         if ($this->physical_health > 80){
-            $output = 'You feel great'; 
+            $output = 'You are healthy'; 
 
         } else if ($this->physical_health > 60){
-            $output = 'You feel fine'; 
+            $output = 'You have a few scratches and bruises'; 
 
         } else if ($this->physical_health > 40){
-            $output = 'You have some scratches and bruises'; 
+            $output = 'You have some deep cuts and have lost some weight'; 
             
         } else if ($this->physical_health > 20){
-            $output = 'You are suffering'; 
+            $output = 'You are suffering from trenchfoot and are very skinny'; 
             
         } else if ($this->physical_health > 5){
             $output = 'You are bleeding heavily and close to death'; 
@@ -45,13 +45,13 @@ class Character extends Model
             $output = 'You feel fine'; 
 
         } else if ($this->mental_health > 40){
-            $output = 'You have some scratches and bruises'; 
+            $output = 'You are experiencing mild anxiety'; 
             
         } else if ($this->mental_health > 20){
             $output = 'You are suffering'; 
             
         } else if ($this->mental_health > 5){
-            $output = 'You are bleeding heavily and close to death'; 
+            $output = 'You are deeply depressed and close to breaking'; 
             
         } else {
             $output = 'You are dead'; 

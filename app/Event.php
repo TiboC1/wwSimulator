@@ -16,7 +16,7 @@ class Event extends Model
 
         $user=Auth::user();
 
-        //$bravery = $user->character()->bravery;
+        $bravery = $user->character->bravery;
 
         $dead = 1 + $bravery;
 
@@ -29,5 +29,17 @@ class Event extends Model
         };
 
         return $outcome;
+     }
+
+     public function turn() {
+        $user=Auth::user();
+
+        $status = $this->randomDeathGen();
+        
+        if ($status = 'dead') {
+                
+        }  else {
+                //
+        }
      }
 }
