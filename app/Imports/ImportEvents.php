@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Event;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class ImportEvents implements ToModel
+class ImportEvents implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,26 +16,25 @@ class ImportEvents implements ToModel
     public function model(array $row)
     {
         return new Event([
-            'id'            => $row[0],
-            'severity'      => $row[1], 
-            'title'         => $row[2],
-            'description'   => $row[3], 
-            'choice1desc'   => $row[4] ?? $row[4],
-            'choice2desc'   => $row[5] ?? $row[5], 
-            'choice3desc'   => $row[6] ?? $row[6],
-            'choice4desc'   => $row[7] ?? $row[7], 
-            'choice1health' => $row[8] ?? $row[8],
-            'choice2health' => $row[9] ?? $row[9], 
-            'choice3health' => $row[10] ?? $row[10],
-            'choice4health' => $row[11] ?? $row[11], 
-            'choice1mental' => $row[12] ?? $row[12],
-            'choice2mental' => $row[13] ?? $row[13], 
-            'choice3mental' => $row[14] ?? $row[14],
-            'choice4mental' => $row[15] ?? $row[15], 
-            'choice1bravery'=> $row[16] ?? $row[16],
-            'choice2bravery'=> $row[17] ?? $row[17], 
-            'choice3bravery'=> $row[18] ?? $row[18],
-            'choice4bravery'=> $row[19] ?? $row[19], 
+            'severity'      => $row['severity'], 
+            'title'         => $row['title'],
+            'description'   => $row['description'], 
+            'choice1desc'   => $row['choice1desc'],
+            'choice2desc'   => $row['choice2desc'], 
+            'choice3desc'   => $row['choice3desc'],
+            'choice4desc'   => $row['choice4desc'], 
+            'choice1health' => $row['choice1health'],
+            'choice2health' => $row['choice2health'], 
+            'choice3health' => $row['choice3health'],
+            'choice4health' => $row['choice4health'], 
+            'choice1mental' => $row['choice1mental'],
+            'choice2mental' => $row['choice2mental'], 
+            'choice3mental' => $row['choice3mental'],
+            'choice4mental' => $row['choice4mental'], 
+            'choice1bravery'=> $row['choice1bravery'],
+            'choice2bravery'=> $row['choice2bravery'], 
+            'choice3bravery'=> $row['choice3bravery'],
+            'choice4bravery'=> $row['choice4bravery'], 
         ]);
     }
 }

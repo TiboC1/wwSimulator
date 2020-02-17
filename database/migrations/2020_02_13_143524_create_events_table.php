@@ -34,6 +34,8 @@ class CreateEventsTable extends Migration
             $table->string('choice2bravery')->nullable();
             $table->string('choice3bravery')->nullable();
             $table->string('choice4bravery')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     } 
 
