@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
- {{Auth()->user()->character->showHealth()}}
+ {{Auth()->user()->character->showPhysicalHealth()}}
 
 @endsection
