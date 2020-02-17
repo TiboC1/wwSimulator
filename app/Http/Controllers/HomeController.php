@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,9 +23,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Event $event)
     {
-        return view('home');
+        return view('game/home', compact('event'));
     }
 
     /**
@@ -33,6 +35,6 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('adminHome');
+        return view('admin/adminHome');
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Character;
+use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -12,7 +14,7 @@ class CharacterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Character $character)
     {
         //
     }
@@ -22,9 +24,9 @@ class CharacterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Character $character)
     {
-        //
+        return view('/character/create', compact('character'));
     }
 
     /**
@@ -33,9 +35,23 @@ class CharacterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Event $event, User $user)
     {
-        //
+        // validate the data from form
+
+        $data = $request->validate([
+            'name' => 'required|max:30',
+        ]);
+
+        // Persist data to database
+
+        auth()->user()->character()->create([
+            'name' => $data['name'],
+        ]);
+
+        // return view
+
+        return view('game/show', compact('character', 'event'));
     }
 
     /**

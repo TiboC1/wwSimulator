@@ -16,7 +16,7 @@ class CreateCharactersTable extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
+            $table->string('name')->default('Anonymous');
             $table->bigInteger('physical_health')->default(100);
             $table->bigInteger('mental_health')->default(100);
             $table->bigInteger('bravery')->default(0);
