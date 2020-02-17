@@ -79,7 +79,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $user->profile()->save(new Character);
+        $user->character()->save(new Character);
         return $user;
     }
 }

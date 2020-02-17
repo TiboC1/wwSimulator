@@ -35,7 +35,7 @@ class CharacterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Event $event, User $user)
+    public function store(Request $request, Event $event, User $user, Character $character)
     {
         // validate the data from form
 
@@ -45,13 +45,13 @@ class CharacterController extends Controller
 
         // Persist data to database
 
-        auth()->user()->character()->create([
+        auth()->user()->character()->update([
             'name' => $data['name'],
         ]);
 
         // return view
 
-        return view('game/show', compact('character', 'event'));
+        return view('/game/show', compact('character', 'event', 'user'));
     }
 
     /**

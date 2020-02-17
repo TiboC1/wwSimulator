@@ -38,7 +38,7 @@ Route::get('export', 'ImportController@export');
 
 Route::get('character/create', 'CharacterController@create')->name('character.create');
 Route::patch('character', 'CharacterController@store')->name('character.store');
-Route::get('character/{$character}', 'CharacterController@show')->name('character.show');
+Route::get('character/{character}', 'CharacterController@show')->name('character.show');
 
 // Game
 

@@ -16,7 +16,7 @@ class Event extends Model
 
         $user=Auth::user();
 
-        $bravery = $user->character()->bravery;
+        //$bravery = $user->character()->bravery;
 
         $dead = 1 + $bravery;
 
