@@ -83,9 +83,36 @@ class CharacterController extends Controller
      * @param  \App\Character  $character
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Character $character)
+    public function update(Request $request, Character $character, Event $event, User $user)
     {
-        //
+        // get data
+        $event_id = $request('event_id');
+        $choice = $request('choice_number');
+        $event = Event::find($event_id);
+
+        // setting correct choice params
+
+        $health = "choice{$choice}health";
+        $mental = "choice{$choice}mental";
+        $bravery = "choice{$choice}bravery";
+
+        // perform calculations to manipulate existing values
+
+        $updatedPhysicalHealth = auth()->user()->character->health - $event->$health;
+        $updatedMentalHealth = auth()->user()->character->health - $event->$mental;
+        $updatedBravery = auth()->user()->character->health - $event->$bravery;
+
+        // Persist new data to database
+
+        auth()->user()->character()->update([
+            'physical_health' => $updatedPhysicalHealth,
+            'mental_health' => $updatedMentalHealth,
+            'bravery' => $updatedBravery,
+        ]);
+
+        // Return view
+
+        return view('/game/show', compact('event', 'character', 'user'));
     }
 
     /**

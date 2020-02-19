@@ -43,6 +43,6 @@ Route::get('character/{character}', 'CharacterController@show')->name('character
 // Game
 
 Route::get('game', 'EventController@index')->name('event.index');
-Route::patch('game', 'EventController@update')->name('event.update');
+Route::patch('game', 'CharacterController@update')->name('character.update');
 Route::get('game/leaderboard', 'EventController@show')->name('event.show');
 
